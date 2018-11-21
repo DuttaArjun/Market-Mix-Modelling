@@ -1,7 +1,7 @@
 ---
-title: "Marketing Mix Modelling Analysis"
-author: "Lefteris Nikolidakis"
-date: "20 March 2016"
+title: "Market Mix Modelling Analysis"
+author: "Arjun Dutta"
+date: "20 September 2018"
 output: 
   html_document: 
     keep_md: yes
@@ -19,7 +19,7 @@ Transformation and adjustment techniques are also applied (Adstocks, log-log, ad
 
 Below I load the tables from the excel file.
 ```{r echo=FALSE, results='hide'}
-setwd("E:/Lefteris/Marketing Mixed Modelling")
+setwd("E:/Arjun Dutta/Market Mixed Modelling")
 ```
 
 
@@ -37,7 +37,7 @@ Here is my assumed interpretation of the dataset:
 
 **Own Brand Sales Volume Kg**: Cumulative sales volume in kg till the weekend date for a Brand's product
 
-**Own Brand Sales Volume £**: Cumulative sales Value in £ till the weekend date
+**Own Brand Sales Volume Â£**: Cumulative sales Value in Â£ till the weekend date
 
 **Own Brand Pricing**: Average Price during the weekend date
 
@@ -47,9 +47,9 @@ Here is my assumed interpretation of the dataset:
 
 **Housewives, Kids and Sponsorship TVRs**: Three TV advertising variables that measure the total of all rating points during the brand's advertising campaign.
 
-**TV Spend £**: Money spent by the Brand/Business in TV Advertising during the weekend date.
+**TV Spend Â£**: Money spent by the Brand/Business in TV Advertising during the weekend date.
 
-**Press Spend £**: Money spent by the Brand/Business in Press Advertising during the weekend date.
+**Press Spend Â£**: Money spent by the Brand/Business in Press Advertising during the weekend date.
 <br>
 
 ### Training and Test set partition
@@ -57,7 +57,7 @@ Here is my assumed interpretation of the dataset:
 In Time Series analysis and forecasting it is advised to leave a portion from the left or right part of the sample data for **testing **, i.e., not to use this part during learning, but to use it to test how successfully the forecasting model predicts our data. The rest of the sample's part will be the **training test** which will be implemented to build up the model.
 
 <i><font face="Geneva" size="2">Example: Time series Training-Test set partition</font></i>
-<img src="https://raw.githubusercontent.com/tab114/Marketing_Mixed_Modelling_Analysis/master/Marketing_Mix_Modelling_analysis_files/figure-html/sample_time_series.png" width="720" height="250" title="Example Time series - Training & Test set partition" />
+<img src="https://raw.githubusercontent.com/tab114/Market_Mixed_Modelling_Analysis/master/Market_Mix_Modelling_analysis_files/figure-html/sample_time_series.png" width="720" height="250" title="Example Time series - Training & Test set partition" />
 
 
 In our dataset the training-set will be all data from `2004` to `2006`, and the test-set the `2007` data.
@@ -94,7 +94,7 @@ format_si <- function(...) {
                 1e6,   1e9,   1e12,  1e15,  1e18,
                 1e21,  1e24)
     prefix <- c("y",   "z",   "a",   "f",   "p",
-                "n",   "µ",   "m",   " ",   "k",
+                "n",   "Âµ",   "m",   " ",   "k",
                 "M",   "G",   "T",   "P",   "E",
                 "Z",   "Y")
   
@@ -161,7 +161,7 @@ fit<-lm(log(Brand_Sales)~log(Prices), data=TrainData)
 fit<-lm(Brand_Sales ~ 0 + I(Prices^(-3.7977)), data=TrainData)
 ## the coefficient estimated with the monomial formula is almost equal with the log-log formula 
 
-ggplot(TrainData, aes(x=Prices, y=(Brand_Sales))) +  geom_point() + geom_smooth(method=lm, formula=y~I(x^(-3.7977))) + xlab("Prices in £") + ylab("Sales Volume") +ggtitle("Fitted line in Sales vs Prices")
+ggplot(TrainData, aes(x=Prices, y=(Brand_Sales))) +  geom_point() + geom_smooth(method=lm, formula=y~I(x^(-3.7977))) + xlab("Prices in Â£") + ylab("Sales Volume") +ggtitle("Fitted line in Sales vs Prices")
 ```
 
 
@@ -379,7 +379,7 @@ Also I will assume that there is no carry-over component in Press advertising. I
 
 ```{r fig.width=7.5, fig.height=3.7}
 ##Most press efforts are equal to zero:
-ggplot(TrainData, aes(Press_Spend,Brand_Sales)) + geom_point() + ggtitle("Sales vs £ spent in Press Advertising")
+ggplot(TrainData, aes(Press_Spend,Brand_Sales)) + geom_point() + ggtitle("Sales vs Â£ spent in Press Advertising")
 
 ##Ordinal
 TrainData$PressFactor <- rep(0, length(TrainData$Press_Spend))
