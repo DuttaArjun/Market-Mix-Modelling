@@ -1,5 +1,5 @@
 # Marketing Mix Modelling Analysis
-Lefteris Nikolidakis  
+Arjun Dutta  
 20 March 2016  
 
 
