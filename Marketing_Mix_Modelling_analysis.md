@@ -1,6 +1,6 @@
 # Marketing Mix Modelling Analysis
 Arjun Dutta  
-20 March 2016  
+20 September 2018  
 
 
 In this statistical analysis I fitted a multivariate regression model on simulations of Sales and marketing series data (i.e. Advertising, Distribution, Pricing) to estimate the impact of various marketing tactics on sales and then forecast the impact of future sets of tactics.
