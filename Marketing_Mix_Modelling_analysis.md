@@ -254,7 +254,7 @@ ggplot(TrainData, aes(Week_Ending)) +
   ggtitle("Ads' TVRs over time")
 ```
 
-![](Marketing_Mix_Modelling_analysis_files/figure-html/Plot Ads-1.png)
+![](Market-Mix-Modelling/Marketing_Mix_Modelling_analysis_files/figure-html/Plot Ads-1.png)
 
 The Housewives and Kids TVRs are highly correlated with each other and also from the correlation matrix we can see that both affect Sales approximately equally (cor coefficients&asymp;0.2). So since they are both measured in the same unit (TVR), I will merge them to one variable by adding each week's respective values of the two ads.
 
