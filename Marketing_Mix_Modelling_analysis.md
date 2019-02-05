@@ -1,4 +1,4 @@
-# Marketing Mix Modelling Analysis
+# Comparitive Study of Multiple Linear Regression on Sales Volume
 Arjun Dutta  
 20 September 2018  
 
